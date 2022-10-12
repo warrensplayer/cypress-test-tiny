@@ -4,6 +4,10 @@ describe('page', () => {
     cy.visit('https://example.cypress.io')
   })
 
+
+  //Examples for https://github.com/cypress-io/cypress/issues/24164
+
+  // Example that does not retry
   it('does not retry', () => {
     cy.intercept('/').as('page')
     cy.visit('https://example.cypress.io')
@@ -11,6 +15,8 @@ describe('page', () => {
   })
 
 
+  // Example that retries when the documentation indicates that it should not
+  // https://docs.cypress.io/api/commands/wait#Assertions
   it('is slow', () => {
     cy.intercept('/').as('page')
     cy.visit('https://example.cypress.io')
